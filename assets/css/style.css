@@ -1,0 +1,22 @@
+@import url(./nullstyle.css);
+:root{
+   color: ;
+}
+.wrapper {
+   max-width: 1440px;
+   padding: 30px;
+}
+
+.container {
+   width: 70%;
+   margin: auto;
+}
+
+.card-header h5 {
+   vertical-align: middle;
+
+}
+.card-image  {
+   display: inline-block;
+   vertical-align: middle;
+}
