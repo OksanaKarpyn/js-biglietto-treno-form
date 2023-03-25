@@ -23,10 +23,12 @@ let out = document.querySelector('#out');
 let outName = document.querySelector('.out-name');
 let percent = document.querySelector('.percent');
 let ticketPrice = document.querySelector('.ticket-price');
+let outCarriage = document.querySelector('#out-carriage');
+let outCode = document.querySelector('#out-code-CP');
+
 
 // function
 function ticket() {
-
 
     let firstName = document.querySelector('#nome').value;
     let age = parseInt(document.querySelector('#eta').value);
@@ -41,21 +43,33 @@ function ticket() {
         const discountPrice = price - (price * discoun20);
         // out.innerHTML += `${firstName} ${discountPrice.toFixed(2)}`;
 
-        outName.innerHTML += `${firstName} `;
-        percent.innerHTML += `${discoun20 * 100}%`;
+        outName.innerHTML = `${firstName} `;
+        percent.innerHTML = `${discoun20 * 100}%`;
         ticketPrice.innerHTML += ` ${discountPrice.toFixed(2)}`;
+        outCarriage.innerHTML = `${numberRandom(1, 10000)}`
+        outCode.innerHTML = `${numberRandom(1, 10)}`
+    } 
+    else if (over65) {
 
-    } else if (over65) {
         const discountPrice = price - (price * discoun40);
         // out.innerHTML += `${firstName} ${discountPrice.toFixed(2)}`;
-        
-        outName.innerHTML += `${firstName} `;
-        percent.innerHTML += `${discoun40 * 100}%`;
+        outName.innerHTML = `${firstName} `;
+        percent.innerHTML = `${discoun40 * 100}%`;
         ticketPrice.innerHTML += ` ${discountPrice.toFixed(2)}`;
     }
-
+    else{
+        outName.innerHTML = `${firstName} `;
+        ticketPrice.innerHTML += ` ${price.toFixed(2)}`;
+        percent.innerHTML = '---';
+        outCarriage.innerHTML = `${numberRandom(1, 10000)}`;
+        outCode.innerHTML = `${numberRandom(1, 10)}`;
+    }
 
     // document.querySelector('.bottone').addEventListener(onclick, function(){
     //     ticket( );
     // }  ).reset();
+}
+
+function numberRandom(min, max) {
+    return Math.floor(Math.random() * max) + min;
 }
